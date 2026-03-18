@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const colorMap: Record<string, string> = {
+  teal: 'border-teal-200 bg-teal-50',
+  blue: 'border-blue-200 bg-blue-50',
+  violet: 'border-violet-200 bg-violet-50',
+  rose: 'border-rose-200 bg-rose-50',
+  amber: 'border-amber-200 bg-amber-50',
+  emerald: 'border-emerald-200 bg-emerald-50',
+};
+
+const badgeMap: Record<string, string> = {
+  teal: 'bg-teal-500',
+  blue: 'bg-blue-500',
+  violet: 'bg-violet-500',
+  rose: 'bg-rose-500',
+  amber: 'bg-amber-500',
+  emerald: 'bg-emerald-500',
+};
+---
+
+<BaseLayout title="Syllabus" description="Full course syllabus for Psychosocial Nursing.">
+  <Header />
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+      <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+      <span class="text-slate-700">Syllabus</span>
+    </nav>
+
+    <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+      <!-- Header -->
+      <div class="bg-gradient-to-br from-teal-500 to-primary-700 px-8 py-10 text-white">
+        <div class="flex items-start justify-between flex-wrap gap-4">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-bold">Psychosocial Nursing</h1>
+            <p class="mt-1 text-teal-100">Open Learning Management System — Course Syllabus</p>
+          </div>
+          <div class="text-right">
+            <p class="text-xs text-teal-200 uppercase tracking-wide">Current Version</p>
+            <p class="text-white font-bold">v1.0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-8 py-8 space-y-10">
+        <!-- Course Description -->
+        <section>
+          <h2 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <span class="text-2xl">📋</span> Course Description
+          </h2>
+          <p class="text-slate-600 leading-relaxed">
+            This course explores the psychosocial dimensions of nursing care, with emphasis on
+            therapeutic communication, mental health assessment, cultural competence, and holistic
+            patient-centered practice. Students will develop skills to recognize and respond to the
+            psychological, social, cultural, and spiritual needs of patients across diverse healthcare settings.
+          </p>
+        </section>
+
+        <!-- Learning Outcomes -->
+        <section>
+          <h2 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <span class="text-2xl">🎯</span> Course Learning Outcomes
+          </h2>
+          <p class="text-sm text-slate-500 mb-4">Upon completion, students will be able to:</p>
+          <ol class="space-y-3">
+            {[
+              'Explain the theoretical foundations of psychosocial nursing and the biopsychosocial model of care.',
+              'Demonstrate therapeutic communication techniques in clinical interactions with patients and families.',
+              'Conduct a comprehensive mental status examination and document findings accurately.',
+              'Identify and assess risk factors for suicide, self-harm, violence, and substance misuse.',
+              'Implement evidence-based crisis intervention strategies in simulated clinical scenarios.',
+              'Apply culturally competent practices to reduce disparities and promote equitable mental healthcare.',
+              'Support patients and families experiencing grief, loss, and end-of-life transitions.',
+              'Reflect critically on personal biases, values, and emotional responses that affect patient care.',
+            ].map((outcome, i) => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-teal-100 text-teal-700 text-xs font-bold flex items-center justify-center mt-0.5">
+                  {i + 1}
+                </span>
+                <span class="text-slate-600 text-sm leading-relaxed">{outcome}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <!-- Module Outline -->
+        <section>
+          <h2 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <span class="text-2xl">📚</span> Module Outline
+          </h2>
+
+          <div class="space-y-4">
+            {[
+              {
+                number: 1,
+                title: 'Foundations of Psychosocial Nursing',
+                color: 'teal',
+                topics: [
+                  'What is psychosocial nursing?',
+                  'The biopsychosocial model',
+                  'Holistic patient assessment',
+                  'The therapeutic nurse-patient relationship',
+                ],
+                href: '/modules/foundations',
+              },
+              {
+                number: 2,
+                title: 'Therapeutic Communication',
+                color: 'blue',
+                topics: [
+                  'Principles of therapeutic communication',
+                  'Active listening and empathic responding',
+                  'Non-verbal communication cues',
+                  'Barriers to effective communication',
+                ],
+                href: '/modules/therapeutic-communication',
+              },
+              {
+                number: 3,
+                title: 'Mental Health Assessment',
+                color: 'violet',
+                topics: [
+                  'Mental status examination (MSE)',
+                  'Suicide and self-harm risk assessment',
+                  'Psychosocial screening tools',
+                  'Documentation and handoff communication',
+                ],
+                href: '/modules/mental-health-assessment',
+              },
+              {
+                number: 4,
+                title: 'Crisis Intervention',
+                color: 'rose',
+                topics: [
+                  'Crisis theory and the ABC model',
+                  'De-escalation techniques',
+                  'Safe messaging guidelines',
+                  'Collaborative safety planning',
+                ],
+                href: '/modules/crisis-intervention',
+              },
+              {
+                number: 5,
+                title: 'Cultural Considerations in Mental Health Care',
+                color: 'amber',
+                topics: [
+                  'Cultural competence and humility',
+                  'Implicit bias in healthcare',
+                  'Culturally specific expressions of distress',
+                  'Community-based mental health resources',
+                ],
+                href: '/modules/cultural-considerations',
+              },
+              {
+                number: 6,
+                title: 'Grief, Loss & End-of-Life Care',
+                color: 'emerald',
+                topics: [
+                  'Stages and tasks of grief',
+                  'Complicated grief and bereavement',
+                  'Palliative and hospice care principles',
+                  'Supporting families in end-of-life transitions',
+                ],
+                href: '/modules/grief-and-loss',
+              },
+            ].map((mod) => {
+              return (
+                <div class={`border rounded-xl p-5 ${colorMap[mod.color]}`}>
+                  <div class="flex items-center gap-3 mb-3">
+                    <span class={`w-7 h-7 rounded-full ${badgeMap[mod.color]} text-white text-xs font-bold flex items-center justify-center`}>
+                      {mod.number}
+                    </span>
+                    <a href={mod.href} class="font-semibold text-slate-800 hover:text-primary-700 transition-colors">
+                      {mod.title}
+                    </a>
+                  </div>
+                  <ul class="ml-10 space-y-1">
+                    {mod.topics.map((topic) => (
+                      <li class="text-sm text-slate-600 flex items-start gap-2">
+                        <span class="text-slate-400 mt-1">•</span>
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <!-- Required Resources -->
+        <section>
+          <h2 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <span class="text-2xl">📖</span> Required Resources
+          </h2>
+          <div class="space-y-3">
+            {[
+              {
+                type: 'Textbook',
+                title: 'Psychiatric-Mental Health Nursing: From Suffering to Hope',
+                note: 'Mohr, W.K. (current edition). Lippincott Williams & Wilkins.',
+              },
+              {
+                type: 'Guideline',
+                title: 'American Psychiatric Association Practice Guidelines',
+                note: 'Available online at psychiatry.org',
+              },
+              {
+                type: 'Resource',
+                title: 'Supplementary readings and case studies',
+                note: 'Provided within each module of this LMS (open access).',
+              },
+            ].map((res) => (
+              <div class="flex items-start gap-3 p-4 bg-white border border-slate-100 rounded-lg">
+                <span class="module-badge bg-slate-100 text-slate-600 mt-0.5 shrink-0">{res.type}</span>
+                <div>
+                  <p class="text-sm font-medium text-slate-800">{res.title}</p>
+                  <p class="text-xs text-slate-500 mt-0.5">{res.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Assessment Methods -->
+        <section>
+          <h2 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <span class="text-2xl">✏️</span> Assessment Methods
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-slate-50 border border-slate-100">
+                  <th class="text-left px-4 py-3 font-semibold text-slate-700 rounded-tl-lg">Assessment</th>
+                  <th class="text-left px-4 py-3 font-semibold text-slate-700">Description</th>
+                  <th class="text-right px-4 py-3 font-semibold text-slate-700 rounded-tr-lg">Weight</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 border border-t-0 border-slate-100">
+                {[
+                  { name: 'Lesson Quizzes', desc: 'Knowledge checks after each lesson', weight: '20%' },
+                  { name: 'Case Study Analysis', desc: 'Written clinical case study responses', weight: '25%' },
+                  { name: 'Communication Skills Reflection', desc: 'Reflective journal on therapeutic communication', weight: '20%' },
+                  { name: 'Mental Health Assessment', desc: 'Simulated patient MSE documentation', weight: '20%' },
+                  { name: 'Final Module Project', desc: 'Integrated care plan with psychosocial interventions', weight: '15%' },
+                ].map((row, i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
+                    <td class="px-4 py-3 font-medium text-slate-800">{row.name}</td>
+                    <td class="px-4 py-3 text-slate-600">{row.desc}</td>
+                    <td class="px-4 py-3 text-right font-semibold text-primary-700">{row.weight}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Course Policies -->
+        <section>
+          <h2 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+            <span class="text-2xl">📜</span> Course Policies
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { title: 'Open Access', body: 'All content is freely available under an open educational resource (OER) license. No account required.' },
+              { title: 'Self-Paced', body: 'Learn at your own pace. There are no strict deadlines unless your institution requires otherwise.' },
+              { title: 'Academic Integrity', body: 'Content is for educational purposes. Cite appropriately when using materials in academic work.' },
+              { title: 'Content Updates', body: 'This is a living document. Content is updated regularly to reflect current evidence and guidelines.' },
+            ].map((policy) => (
+              <div class="p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                <h3 class="font-semibold text-slate-800 text-sm mb-1">{policy.title}</h3>
+                <p class="text-xs text-slate-600 leading-relaxed">{policy.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="text-center pt-4">
+          <a href="/modules" class="btn-primary">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            Explore All Modules
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

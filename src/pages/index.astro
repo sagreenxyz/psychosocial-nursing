@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const modules = [
+  {
+    number: 1,
+    title: 'Foundations of Psychosocial Nursing',
+    description: 'Explore the theoretical foundations of psychosocial care, the nurse-patient relationship, and holistic approaches to mental wellness.',
+    href: '/modules/foundations',
+    lessonCount: 3,
+    duration: '30 min',
+    color: 'teal',
+    icon: '🏛️',
+    tags: ['Theory', 'Fundamentals'],
+  },
+  {
+    number: 2,
+    title: 'Therapeutic Communication',
+    description: 'Master verbal and non-verbal communication techniques that foster trust, empathy, and healing in clinical encounters.',
+    href: '/modules/therapeutic-communication',
+    lessonCount: 4,
+    duration: '34 min',
+    color: 'blue',
+    icon: '💬',
+    tags: ['Communication', 'Skills'],
+  },
+  {
+    number: 3,
+    title: 'Mental Health Assessment',
+    description: 'Learn to conduct comprehensive mental status examinations and evidence-based risk assessments for diverse patient populations.',
+    href: '/modules/mental-health-assessment',
+    lessonCount: 2,
+    duration: '22 min',
+    color: 'violet',
+    icon: '🧠',
+    tags: ['Assessment', 'Clinical'],
+  },
+  {
+    number: 4,
+    title: 'Crisis Intervention',
+    description: 'Develop competency in recognizing, assessing, and responding to psychiatric crises using evidence-based frameworks.',
+    href: '/modules/crisis-intervention',
+    lessonCount: 2,
+    duration: '21 min',
+    color: 'rose',
+    icon: '🚨',
+    tags: ['Crisis', 'Safety'],
+  },
+  {
+    number: 5,
+    title: 'Cultural Considerations',
+    description: 'Provide culturally competent, equitable care by understanding how culture shapes health beliefs, stigma, and care-seeking behavior.',
+    href: '/modules/cultural-considerations',
+    lessonCount: 2,
+    duration: '17 min',
+    color: 'amber',
+    icon: '🌍',
+    tags: ['Diversity', 'Equity'],
+  },
+  {
+    number: 6,
+    title: 'Grief, Loss & End of Life',
+    description: 'Support patients and families through the stages of grief and loss with compassionate, evidence-informed nursing interventions.',
+    href: '/modules/grief-and-loss',
+    lessonCount: 3,
+    duration: '28 min',
+    color: 'emerald',
+    icon: '🕊️',
+    tags: ['Grief', 'Palliative'],
+  },
+];
+
+const stats = [
+  { label: 'Modules', value: '6', icon: '📚' },
+  { label: 'Lessons', value: '16+', icon: '📖' },
+  { label: 'Open Access', value: '100%', icon: '🔓' },
+  { label: 'Evidence-Based', value: '✓', icon: '🔬' },
+];
+---
+
+<BaseLayout title="Home" description="Open learning system for psychosocial aspects of nursing care.">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-slate-800 via-slate-900 to-primary-900 overflow-hidden">
+      <!-- Background decoration -->
+      <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-teal-400 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-400 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="px-3 py-1 bg-teal-400/20 border border-teal-400/30 rounded-full text-teal-300 text-xs font-medium uppercase tracking-wide">
+              Open Learning Resource
+            </span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            Psychosocial
+            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-primary-300">
+              Nursing Care
+            </span>
+          </h1>
+
+          <p class="mt-6 text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl">
+            Explore the intersection of mental health, human connection, and nursing practice.
+            Build the skills to deliver holistic, compassionate, evidence-based patient care.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="/modules" class="btn-primary text-base px-6 py-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Browse Modules
+            </a>
+            <a href="/syllabus" class="btn-secondary text-base px-6 py-3 bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              View Syllabus
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wave separator -->
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full text-slate-50" preserveAspectRatio="none">
+          <path d="M0 60L1440 60L1440 0C1200 50 840 60 720 55C600 50 240 10 0 40L0 60Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-px">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-8">
+        {stats.map((stat) => (
+          <div class="flex flex-col items-center text-center p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+            <span class="text-2xl mb-1">{stat.icon}</span>
+            <span class="text-2xl font-bold text-slate-800">{stat.value}</span>
+            <span class="text-xs text-slate-500 font-medium">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Modules Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-800">Course Modules</h2>
+          <p class="mt-1 text-slate-500">Select a module to begin your learning journey</p>
+        </div>
+        <a href="/modules" class="hidden sm:inline-flex items-center gap-1 text-sm text-primary-600 font-medium hover:text-primary-700 transition-colors">
+          View all
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {modules.map((mod) => (
+          <ModuleCard {...mod} />
+        ))}
+      </div>
+    </section>
+
+    <!-- About / Why Section -->
+    <section class="bg-white border-y border-slate-100 py-16 mt-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="module-badge bg-teal-50 text-teal-700 mb-4">About This Course</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-800 mb-4">
+              Why Psychosocial Nursing Matters
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-4">
+              Mental health and psychosocial well-being are inseparable from physical health.
+              Nurses who understand the psychosocial dimensions of care are better equipped to
+              recognize suffering, build therapeutic relationships, and advocate for whole-person healing.
+            </p>
+            <p class="text-slate-600 leading-relaxed">
+              This course draws on current evidence, clinical case studies, and reflective practice
+              exercises to help you develop the knowledge, attitudes, and skills needed for compassionate
+              psychosocial nursing care across all healthcare settings.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="/syllabus" class="btn-primary text-sm">View Full Syllabus</a>
+              <a href="/modules/foundations" class="btn-secondary text-sm">Start Module 1</a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              { icon: '🎯', title: 'Learning Objectives', desc: 'Clear, measurable goals for every lesson' },
+              { icon: '📋', title: 'Case Studies', desc: 'Real-world clinical scenarios to apply your knowledge' },
+              { icon: '🔬', title: 'Evidence-Based', desc: 'Content grounded in current research and best practice' },
+              { icon: '♿', title: 'Open Access', desc: 'Free to use, share, and adapt under open license' },
+            ].map((item) => (
+              <div class="p-5 bg-slate-50 rounded-xl border border-slate-100">
+                <span class="text-3xl block mb-2">{item.icon}</span>
+                <h3 class="font-semibold text-slate-800 text-sm mb-1">{item.title}</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Started CTA -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="bg-gradient-to-br from-teal-500 to-primary-600 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Ready to Begin Your Journey?
+          </h2>
+          <p class="text-teal-100 mb-8 max-w-xl mx-auto">
+            Start with Module 1 to build your foundational knowledge, or jump to any topic
+            that interests you. All content is freely accessible.
+          </p>
+          <a href="/modules/foundations/what-is-psychosocial-nursing" class="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary-700 font-semibold rounded-lg hover:bg-teal-50 transition-colors shadow-lg">
+            Start Learning Now
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

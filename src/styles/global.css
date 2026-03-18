@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-serif: 'Merriweather', Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-slate-50 text-primary-700 font-medium rounded-lg border border-primary-200 transition-colors duration-200 shadow-sm;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply shadow-md -translate-y-0.5;
+  }
+
+  .module-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .prose-nursing {
+    @apply prose prose-slate max-w-none prose-headings:font-sans prose-headings:text-slate-800 prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-600 hover:text-primary-700 hover:bg-primary-50 transition-colors duration-150;
+  }
+
+  .sidebar-link.active {
+    @apply bg-primary-50 text-primary-700 font-medium;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-slate-200 overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-full bg-gradient-to-r from-teal-400 to-primary-500 transition-all duration-700;
+  }
+}

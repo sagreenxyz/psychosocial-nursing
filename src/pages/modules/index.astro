@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ModuleCard from '../../components/ModuleCard.astro';
+
+const modules = [
+  {
+    number: 1,
+    title: 'Foundations of Psychosocial Nursing',
+    description: 'Explore the theoretical foundations of psychosocial care, the nurse-patient relationship, and holistic approaches to mental wellness.',
+    href: '/modules/foundations',
+    lessonCount: 3,
+    duration: '30 min',
+    color: 'teal',
+    icon: '🏛️',
+    tags: ['Theory', 'Fundamentals'],
+  },
+  {
+    number: 2,
+    title: 'Therapeutic Communication',
+    description: 'Master verbal and non-verbal communication techniques that foster trust, empathy, and healing in clinical encounters.',
+    href: '/modules/therapeutic-communication',
+    lessonCount: 4,
+    duration: '34 min',
+    color: 'blue',
+    icon: '💬',
+    tags: ['Communication', 'Skills'],
+  },
+  {
+    number: 3,
+    title: 'Mental Health Assessment',
+    description: 'Learn to conduct comprehensive mental status examinations and evidence-based risk assessments for diverse patient populations.',
+    href: '/modules/mental-health-assessment',
+    lessonCount: 2,
+    duration: '22 min',
+    color: 'violet',
+    icon: '🧠',
+    tags: ['Assessment', 'Clinical'],
+  },
+  {
+    number: 4,
+    title: 'Crisis Intervention',
+    description: 'Develop competency in recognizing, assessing, and responding to psychiatric crises using evidence-based frameworks.',
+    href: '/modules/crisis-intervention',
+    lessonCount: 2,
+    duration: '21 min',
+    color: 'rose',
+    icon: '🚨',
+    tags: ['Crisis', 'Safety'],
+  },
+  {
+    number: 5,
+    title: 'Cultural Considerations',
+    description: 'Provide culturally competent, equitable care by understanding how culture shapes health beliefs, stigma, and care-seeking behavior.',
+    href: '/modules/cultural-considerations',
+    lessonCount: 2,
+    duration: '17 min',
+    color: 'amber',
+    icon: '🌍',
+    tags: ['Diversity', 'Equity'],
+  },
+  {
+    number: 6,
+    title: 'Grief, Loss & End of Life',
+    description: 'Support patients and families through the stages of grief and loss with compassionate, evidence-informed nursing interventions.',
+    href: '/modules/grief-and-loss',
+    lessonCount: 3,
+    duration: '28 min',
+    color: 'emerald',
+    icon: '🕊️',
+    tags: ['Grief', 'Palliative'],
+  },
+];
+---
+
+<BaseLayout title="Modules" description="Browse all psychosocial nursing learning modules.">
+  <Header />
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Page Header -->
+    <div class="mb-10">
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-4">
+        <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="text-slate-700">Modules</span>
+      </nav>
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-800">Course Modules</h1>
+      <p class="mt-2 text-slate-500 max-w-2xl">
+        Each module builds on the previous, guiding you through the essential psychosocial
+        competencies for modern nursing practice. Start at Module 1 or explore any topic directly.
+      </p>
+    </div>
+
+    <!-- Module Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {modules.map((mod) => (
+        <ModuleCard {...mod} />
+      ))}
+    </div>
+
+    <!-- Coming Soon Note -->
+    <div class="mt-10 p-6 bg-primary-50 border border-primary-100 rounded-xl text-center">
+      <p class="text-sm text-primary-700">
+        <strong>This is a living course.</strong> New modules, lessons, and resources are added regularly.
+        Check back often — or contribute your own content.
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const resourceCategories = [
+  {
+    title: 'Professional Organizations',
+    icon: '🏛️',
+    resources: [
+      { name: 'American Psychiatric Nurses Association (APNA)', url: 'https://www.apna.org', desc: 'Leading organization for psychiatric-mental health nurses.' },
+      { name: 'American Nurses Association (ANA)', url: 'https://www.nursingworld.org', desc: 'Standards of practice, ethics, and policy for nurses.' },
+      { name: 'International Society of Psychiatric-Mental Health Nurses (ISPN)', url: 'https://www.ispn-psych.org', desc: 'Global network for psychiatric nursing practitioners.' },
+    ],
+  },
+  {
+    title: 'Mental Health Resources',
+    icon: '🧠',
+    resources: [
+      { name: 'National Institute of Mental Health (NIMH)', url: 'https://www.nimh.nih.gov', desc: 'Research, statistics, and patient education on mental health disorders.' },
+      { name: 'SAMHSA National Helpline', url: 'https://www.samhsa.gov/find-help/national-helpline', desc: 'Free, confidential, 24/7 treatment referral service. 1-800-662-4357.' },
+      { name: '988 Suicide & Crisis Lifeline', url: 'https://988lifeline.org', desc: 'National crisis network for suicide prevention and mental health crises.' },
+    ],
+  },
+  {
+    title: 'Clinical Guidelines & Tools',
+    icon: '📋',
+    resources: [
+      { name: 'APA Practice Guidelines', url: 'https://www.psychiatry.org/psychiatrists/practice/clinical-practice-guidelines', desc: 'Evidence-based guidelines from the American Psychiatric Association.' },
+      { name: 'PHQ-9 Depression Screener', url: 'https://www.phqscreeners.com', desc: 'Validated screening tools for depression, anxiety, and other conditions.' },
+      { name: 'Columbia Suicide Severity Rating Scale (C-SSRS)', url: 'https://cssrs.columbia.edu', desc: 'Gold standard tool for suicide risk assessment.' },
+    ],
+  },
+  {
+    title: 'Open Educational Resources',
+    icon: '📖',
+    resources: [
+      { name: 'OpenStax Psychology', url: 'https://openstax.org/books/psychology-2e/pages/1-introduction', desc: 'Free, peer-reviewed introductory psychology textbook.' },
+      { name: 'PubMed Central', url: 'https://www.ncbi.nlm.nih.gov/pmc/', desc: 'Free archive of biomedical and life sciences journal literature.' },
+      { name: 'MedlinePlus Mental Health', url: 'https://medlineplus.gov/mentalhealth.html', desc: 'Patient-friendly mental health information from the NLM.' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Resources" description="Curated resources for psychosocial nursing practice and education.">
+  <Header />
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+      <a href="/" class="hover:text-primary-600 transition-colors">Home</a>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+      <span class="text-slate-700">Resources</span>
+    </nav>
+
+    <div class="mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold text-slate-800">Resources</h1>
+      <p class="mt-2 text-slate-500 max-w-2xl">
+        Curated links to professional organizations, clinical tools, evidence-based guidelines,
+        and open educational materials for psychosocial nursing practice.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      {resourceCategories.map((category) => (
+        <section>
+          <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 mb-4">
+            <span>{category.icon}</span>
+            {category.title}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {category.resources.map((res) => (
+              <a
+                href={res.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card p-5 group"
+              >
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-semibold text-slate-800 text-sm leading-snug group-hover:text-primary-700 transition-colors">
+                    {res.name}
+                  </h3>
+                  <svg class="w-4 h-4 text-slate-400 shrink-0 ml-2 group-hover:text-primary-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
+                <p class="text-xs text-slate-500 leading-relaxed">{res.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- Crisis Resources Notice -->
+    <div class="mt-10 p-6 bg-rose-50 border border-rose-200 rounded-xl">
+      <div class="flex items-start gap-3">
+        <span class="text-2xl shrink-0">🆘</span>
+        <div>
+          <h3 class="font-bold text-rose-800 mb-1">If You or Someone You Know Is in Crisis</h3>
+          <p class="text-sm text-rose-700 leading-relaxed">
+            Contact the <strong>988 Suicide & Crisis Lifeline</strong> by calling or texting <strong>988</strong>.
+            For psychiatric emergencies, call <strong>911</strong> or go to the nearest emergency department.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
