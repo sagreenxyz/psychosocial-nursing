@@ -1,0 +1,117 @@
+---
+export interface Props {
+  number: number;
+  title: string;
+  description: string;
+  href: string;
+  lessonCount: number;
+  duration: string;
+  color: string;
+  icon: string;
+  tags?: string[];
+}
+
+const { number, title, description, href, lessonCount, duration, color, icon, tags = [] } = Astro.props;
+
+const colorMap: Record<string, { bg: string; text: string; badge: string; badgeText: string; border: string }> = {
+  teal: {
+    bg: 'from-teal-500 to-teal-600',
+    text: 'text-teal-600',
+    badge: 'bg-teal-50',
+    badgeText: 'text-teal-700',
+    border: 'border-teal-100',
+  },
+  blue: {
+    bg: 'from-blue-500 to-blue-600',
+    text: 'text-blue-600',
+    badge: 'bg-blue-50',
+    badgeText: 'text-blue-700',
+    border: 'border-blue-100',
+  },
+  violet: {
+    bg: 'from-violet-500 to-violet-600',
+    text: 'text-violet-600',
+    badge: 'bg-violet-50',
+    badgeText: 'text-violet-700',
+    border: 'border-violet-100',
+  },
+  rose: {
+    bg: 'from-rose-500 to-rose-600',
+    text: 'text-rose-600',
+    badge: 'bg-rose-50',
+    badgeText: 'text-rose-700',
+    border: 'border-rose-100',
+  },
+  amber: {
+    bg: 'from-amber-500 to-amber-600',
+    text: 'text-amber-600',
+    badge: 'bg-amber-50',
+    badgeText: 'text-amber-700',
+    border: 'border-amber-100',
+  },
+  emerald: {
+    bg: 'from-emerald-500 to-emerald-600',
+    text: 'text-emerald-600',
+    badge: 'bg-emerald-50',
+    badgeText: 'text-emerald-700',
+    border: 'border-emerald-100',
+  },
+};
+
+const c = colorMap[color] ?? colorMap.teal;
+---
+
+<a href={href} class="card group flex flex-col">
+  <!-- Card Header -->
+  <div class={`bg-gradient-to-br ${c.bg} p-6 relative overflow-hidden`}>
+    <div class="absolute -top-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
+    <div class="absolute -bottom-6 -left-6 w-20 h-20 bg-white/10 rounded-full"></div>
+    <div class="relative flex items-start justify-between">
+      <span class="text-5xl">{icon}</span>
+      <span class="text-white/70 font-bold text-lg">
+        {String(number).padStart(2, '0')}
+      </span>
+    </div>
+    <h3 class="mt-4 text-lg font-bold text-white leading-snug group-hover:text-white/90 transition-colors">
+      {title}
+    </h3>
+  </div>
+
+  <!-- Card Body -->
+  <div class="flex flex-col flex-1 p-5 gap-4">
+    <p class="text-sm text-slate-600 leading-relaxed flex-1">{description}</p>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <span class={`module-badge ${c.badge} ${c.badgeText}`}>{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <!-- Meta -->
+    <div class={`flex items-center justify-between pt-3 border-t ${c.border}`}>
+      <div class="flex items-center gap-1.5 text-xs text-slate-500">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+        {lessonCount} lessons
+      </div>
+      <div class="flex items-center gap-1.5 text-xs text-slate-500">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        {duration}
+      </div>
+      <span class={`text-xs font-medium ${c.text} flex items-center gap-1 group-hover:gap-2 transition-all`}>
+        Start
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </span>
+    </div>
+  </div>
+</a>

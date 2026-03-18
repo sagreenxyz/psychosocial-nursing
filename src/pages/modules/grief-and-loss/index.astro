@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const lessons = [
+  { title: 'Understanding Grief and Loss', href: '/modules/grief-and-loss/understanding-grief', duration: '10 min', description: 'Explore theories of grief and their application to nursing practice.' },
+  { title: 'Complicated Grief and Bereavement', href: '/modules/grief-and-loss/complicated-grief', duration: '9 min', description: 'Recognize and respond to prolonged or complicated grief reactions.' },
+  { title: 'Palliative and End-of-Life Care', href: '/modules/grief-and-loss/palliative-care', duration: '9 min', description: 'Support patients and families through end-of-life transitions with compassionate nursing care.' },
+];
+---
+
+<BaseLayout title="Module 6: Grief, Loss & End of Life">
+  <Header />
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+      <a href="/" class="hover:text-primary-600">Home</a>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+      <a href="/modules" class="hover:text-primary-600">Modules</a>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+      <span class="text-slate-700">Grief, Loss & End of Life</span>
+    </nav>
+    <div class="bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-2xl p-8 text-white mb-8 relative overflow-hidden">
+      <div class="absolute -top-6 -right-6 w-40 h-40 bg-white/10 rounded-full"></div>
+      <div class="relative">
+        <span class="text-5xl block mb-3">🕊️</span>
+        <span class="px-2 py-0.5 bg-white/20 rounded text-xs font-medium inline-block mb-2">Module 06</span>
+        <h1 class="text-2xl sm:text-3xl font-bold">Grief, Loss & End-of-Life Care</h1>
+        <p class="mt-3 text-emerald-100 max-w-xl leading-relaxed">
+          Support patients and families navigating loss, grief, and end-of-life transitions with compassionate, evidence-based nursing practice.
+        </p>
+        <div class="flex gap-4 mt-5 text-sm text-emerald-200"><span>📄 3 Lessons</span><span>⏱ ~28 min</span></div>
+      </div>
+    </div>
+    <h2 class="text-lg font-bold text-slate-800 mb-4">Lessons in this Module</h2>
+    <div class="space-y-3">
+      {lessons.map((lesson, i) => (
+        <a href={lesson.href} class="card flex items-center gap-5 p-5 group">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 border-2 border-emerald-200 text-emerald-700 font-bold flex items-center justify-center shrink-0 text-sm">{i + 1}</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-semibold text-slate-800 group-hover:text-primary-700 transition-colors">{lesson.title}</h3>
+            <p class="text-sm text-slate-500 mt-0.5">{lesson.description}</p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-xs text-slate-400 hidden sm:block">{lesson.duration}</span>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="mt-8 text-center">
+      <a href="/modules/grief-and-loss/understanding-grief" class="btn-primary">Start Module 6 →</a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const lessons = [
+  { title: 'Crisis Theory and Models', href: '/modules/crisis-intervention/crisis-theory', duration: '10 min', description: 'Explore foundational crisis theory and evidence-based models for intervention.' },
+  { title: 'De-escalation Strategies', href: '/modules/crisis-intervention/de-escalation', duration: '11 min', description: 'Learn practical verbal and behavioral techniques to de-escalate psychiatric crises.' },
+];
+---
+
+<BaseLayout title="Module 4: Crisis Intervention">
+  <Header />
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+      <a href="/" class="hover:text-primary-600">Home</a>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+      <a href="/modules" class="hover:text-primary-600">Modules</a>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+      <span class="text-slate-700">Crisis Intervention</span>
+    </nav>
+    <div class="bg-gradient-to-br from-rose-500 to-rose-700 rounded-2xl p-8 text-white mb-8 relative overflow-hidden">
+      <div class="absolute -top-6 -right-6 w-40 h-40 bg-white/10 rounded-full"></div>
+      <div class="relative">
+        <span class="text-5xl block mb-3">🚨</span>
+        <span class="px-2 py-0.5 bg-white/20 rounded text-xs font-medium inline-block mb-2">Module 04</span>
+        <h1 class="text-2xl sm:text-3xl font-bold">Crisis Intervention</h1>
+        <p class="mt-3 text-rose-100 max-w-xl leading-relaxed">
+          Develop competency in recognizing, assessing, and responding to psychiatric crises using evidence-based frameworks and de-escalation techniques.
+        </p>
+        <div class="flex gap-4 mt-5 text-sm text-rose-200">
+          <span>📄 2 Lessons</span><span>⏱ ~21 min</span>
+        </div>
+      </div>
+    </div>
+    <h2 class="text-lg font-bold text-slate-800 mb-4">Lessons in this Module</h2>
+    <div class="space-y-3">
+      {lessons.map((lesson, i) => (
+        <a href={lesson.href} class="card flex items-center gap-5 p-5 group">
+          <div class="w-10 h-10 rounded-full bg-rose-50 border-2 border-rose-200 text-rose-700 font-bold flex items-center justify-center shrink-0 text-sm">{i + 1}</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="font-semibold text-slate-800 group-hover:text-primary-700 transition-colors">{lesson.title}</h3>
+            <p class="text-sm text-slate-500 mt-0.5">{lesson.description}</p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="text-xs text-slate-400 hidden sm:block">{lesson.duration}</span>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="mt-8 text-center">
+      <a href="/modules/crisis-intervention/crisis-theory" class="btn-primary">Start Module 4 →</a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

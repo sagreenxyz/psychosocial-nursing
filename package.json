@@ -1,0 +1,20 @@
+{
+  "name": "psychosocial-nursing",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "An open learning management system for psychosocial nursing care",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.1",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.5",
+    "tailwindcss": "^4.2.1"
+  }
+}
